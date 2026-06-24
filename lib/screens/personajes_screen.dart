@@ -1,4 +1,5 @@
 import 'package:app_invensibles/class/character.dart';
+import 'package:app_invensibles/const/lorem.dart';
 import 'package:flutter/material.dart';
 
 class CharacterCarouselScreen extends StatefulWidget {
@@ -18,17 +19,17 @@ class _CharacterCarouselScreenState extends State<CharacterCarouselScreen> {
     Character(
       name: "Markus Sebastian ( Mark )",
       imagePath: "assets/images/mark.jpg",
-      description: "Resumen largo aquí...",
+      description: inivincible,
     ),
     Character(
       name: "Omni-Man",
       imagePath: "assets/images/Omniman_Invinsible.jpg",
-      description: "Resumen largo aquí...",
+      description: oniman,
     ),
     Character(
-      name: "Personaje 3",
-      imagePath: "assets/p3.png",
-      description: "Resumen largo aquí...",
+      name: "Conquest",
+      imagePath: "assets/images/Conquest.jpg",
+      description: conquet,
     ),
   ];
 
