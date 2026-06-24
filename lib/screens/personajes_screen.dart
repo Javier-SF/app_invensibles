@@ -16,7 +16,7 @@ class _CharacterCarouselScreenState extends State<CharacterCarouselScreen> {
   // Lista simulada de personajes (puedes cambiarlo por tu API o base de datos)
   final List<Character> characters = [
     Character(
-      name: "Markus Sebastian ( Mark )]",
+      name: "Markus Sebastian ( Mark )",
       imagePath: "assets/images/mark.jpg",
       description: "Resumen largo aquí...",
     ),
@@ -159,9 +159,9 @@ class CharacterDetailScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFF0F1115),
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.black,
         elevation: 0,
-        title: Text(character.name),
+        title: Text(character.name, style: TextStyle(color: Colors.white)),
       ),
       body: SingleChildScrollView(
         child: Column(
