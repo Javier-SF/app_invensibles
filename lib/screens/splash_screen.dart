@@ -31,18 +31,18 @@ class _SplashScreenState extends State<SplashScreen> {
             child: Opacity(
               opacity: 1.0,
               child: Image.asset(
-                'assets/images/invensible_splashaScree.jpg',
+                'assets/images/3122a6e4-769a-46e3-9512-ce4cc5f64dce.jpg',
                 fit: BoxFit.cover,
               ),
             ),
           ),
-          // Center(
-          //   child: Image.asset(
-          //     'assets/images/image-Photoroom.png',
-          //     height: 350,
-          //     width: 350,
-          //   ),
-          // ),
+          Center(
+            child: Image.asset(
+              'assets/images/image-Photoroom.png',
+              height: 350,
+              width: 350,
+            ),
+          ),
         ],
       ),
     );

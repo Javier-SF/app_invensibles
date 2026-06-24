@@ -161,6 +161,12 @@ class CharacterDetailScreen extends StatelessWidget {
       backgroundColor: const Color(0xFF0F1115),
       appBar: AppBar(
         backgroundColor: Colors.black,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back_ios_new_outlined, color: Colors.white),
+        ),
         elevation: 0,
         title: Text(character.name, style: TextStyle(color: Colors.white)),
       ),
