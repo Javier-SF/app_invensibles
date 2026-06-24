@@ -1,0 +1,8 @@
+String resumen1 =
+    'Es una serie de cómics de superhéroes y una exitosa adaptación animada de Amazon Prime Video, creada por el escritor Robert Kirkman (el mismo creador de The Walking Dead) junto a los artistas Cory Walker y Ryan Ottley. A simple vista parece la clásica historia de superhéroes, pero destaca por su realismo crudo, su violencia explícita y un desarrollo de personajes profundamente humano.';
+
+String dequetrata =
+    'La historia sigue a Mark Grayson, un adolescente aparentemente común cuyo padre es Omni-Man (Nolan Grayson), el superhéroe más poderoso del planeta (una especie de Superman alienígena). Al cumplir los 17 años, Mark finalmente hereda los poderes de su padre y adopta la identidad de Invincible.Sin embargo, justo cuando empieza a aprender a ser un héroe bajo la tutela de su padre, Mark descubre un oscuro y terrible secreto sobre el origen de Omni-Man y sus verdaderas intenciones para la Tierra, lo que cambia su vida y el destino del mundo para siempre.';
+
+String pilaresclavedelaserie =
+    'Madurez y Realismo Crudo: A diferencia de los cómics tradicionales donde los héroes rara vez sufren daños permanentes, en Invincible las batallas tienen consecuencias reales. Hay muchísima sangre, fracturas, traumas psicológicos y muertes de personajes importantes.Deconstrucción del Género: Juega con los tropos clásicos de DC y Marvel (de hecho, hay parodias evidentes de la Liga de la Justicia), pero les da un giro mucho más realista, político y oscuro.Evolución de Personajes: Mark no es un héroe perfecto; comete errores, fracasa, sufre y madura a golpes (literal y figuradamente). Las relaciones familiares y amorosas tienen un peso enorme en la trama.';

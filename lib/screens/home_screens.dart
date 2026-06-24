@@ -1,0 +1,126 @@
+// ignore_for_file: deprecated_member_use
+
+import 'package:app_invensibles/screens/personajes_screen.dart';
+import 'package:flutter/material.dart';
+import 'package:app_invensibles/screens/presentacion_screens.dart';
+
+class MedaiaDetailScreen extends StatefulWidget {
+  const MedaiaDetailScreen({super.key});
+
+  @override
+  State<MedaiaDetailScreen> createState() => _MedaiaDetailScreenState();
+}
+
+class _MedaiaDetailScreenState extends State<MedaiaDetailScreen> {
+  int currentPageIndex = 0;
+  final PageController _pageController = PageController();
+
+  final List<Widget> pages = const [
+    Presentacion(),
+    CharacterCarouselScreen(),
+    // Center(
+    //   child: Text(
+    //     'Personajes',
+    //     style: TextStyle(fontSize: 10, color: Colors.white),
+    //   ),
+    // ),
+    Center(
+      child: Text('Juego', style: TextStyle(fontSize: 10, color: Colors.white)),
+    ),
+  ];
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.black,
+      bottomNavigationBar: Theme(
+        data: Theme.of(context).copyWith(
+          navigationBarTheme: NavigationBarThemeData(
+            labelTextStyle: WidgetStateProperty.all(
+              const TextStyle(color: Colors.white, fontSize: 12),
+            ),
+          ),
+        ),
+        child: SizedBox(
+          height: 105,
+          child: NavigationBar(
+            backgroundColor: Colors.black.withOpacity(1.0),
+            indicatorColor: const Color(0xFF0055FF),
+            selectedIndex: currentPageIndex,
+            onDestinationSelected: (int index) {
+              setState(() {
+                currentPageIndex = index;
+              });
+              _pageController.animateToPage(
+                index,
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.easeInOut,
+              );
+            },
+            destinations: [
+              NavigationDestination(
+                selectedIcon: Image.asset(
+                  'assets/images/Viltrimite_logo_black.png',
+                  height: 30,
+                  width: 30,
+                ),
+                icon: Image.asset(
+                  'assets/images/Viltrumite_logo_red.png',
+                  height: 30,
+                  width: 30,
+                ),
+                label: 'Historia',
+              ),
+              const NavigationDestination(
+                selectedIcon: Icon(Icons.person, color: Colors.white),
+                icon: Icon(Icons.person_outline, color: Colors.white),
+                label: 'Personajes',
+              ),
+              const NavigationDestination(
+                selectedIcon: Icon(Icons.gamepad, color: Colors.white),
+                icon: Icon(Icons.gamepad_outlined, color: Colors.white),
+                // selectedIcon: Icon(Icons.gamepad),
+                // icon: Icon(Icons.gamepad_outlined),
+                label: 'Juego',
+              ),
+            ],
+          ),
+        ),
+      ),
+      body: Stack(
+        children: [
+          // -------------------------------------------------------------------
+          // CAPA 1: Imagen de fondo general con opacidad (reemplaza lo negro)
+          // -------------------------------------------------------------------
+          Positioned.fill(
+            child: Opacity(
+              opacity: 0.25,
+              child: Image.asset(
+                'assets/images/3122a6e4-769a-46e3-9512-ce4cc5f64dce.jpg',
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          SafeArea(
+            bottom: false,
+            child: PageView(
+              controller: _pageController,
+              onPageChanged: (int index) {
+                setState(() {
+                  currentPageIndex = index;
+                });
+              },
+              children: pages,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
