@@ -16,7 +16,6 @@ class MedaiaDetailScreen extends StatefulWidget {
 
 class _MedaiaDetailScreenState extends State<MedaiaDetailScreen> {
   int currentPageIndex = 0;
-  final PageController _pageController = PageController();
 
   final List<Widget> pages = const [
     Presentacion(),
@@ -25,12 +24,6 @@ class _MedaiaDetailScreenState extends State<MedaiaDetailScreen> {
     InvincibleMomentsPage(),
     ProfilePage(),
   ];
-
-  @override
-  void dispose() {
-    _pageController.dispose();
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,14 +44,10 @@ class _MedaiaDetailScreenState extends State<MedaiaDetailScreen> {
             indicatorColor: const Color(0xFF0055FF),
             selectedIndex: currentPageIndex,
             onDestinationSelected: (int index) {
+              // Cambiamos el estado directamente de forma inmediata
               setState(() {
                 currentPageIndex = index;
               });
-              _pageController.animateToPage(
-                index,
-                duration: const Duration(milliseconds: 300),
-                curve: Curves.easeInOut,
-              );
             },
             destinations: [
               NavigationDestination(
@@ -82,13 +71,11 @@ class _MedaiaDetailScreenState extends State<MedaiaDetailScreen> {
               const NavigationDestination(
                 selectedIcon: Icon(Icons.gamepad, color: Colors.white),
                 icon: Icon(Icons.gamepad_outlined, color: Colors.white),
-
                 label: 'Juego',
               ),
               const NavigationDestination(
                 selectedIcon: Icon(Icons.newspaper, color: Colors.white),
                 icon: Icon(Icons.newspaper_outlined, color: Colors.white),
-
                 label: 'Momentos',
               ),
               const NavigationDestination(
@@ -97,7 +84,6 @@ class _MedaiaDetailScreenState extends State<MedaiaDetailScreen> {
                   color: Colors.white,
                 ),
                 icon: Icon(Icons.contact_phone_outlined, color: Colors.white),
-
                 label: 'Contactame',
               ),
             ],
@@ -106,9 +92,7 @@ class _MedaiaDetailScreenState extends State<MedaiaDetailScreen> {
       ),
       body: Stack(
         children: [
-          // -------------------------------------------------------------------
-          // CAPA 1: Imagen de fondo general con opacidad (reemplaza lo negro)
-          // -------------------------------------------------------------------
+          // Capa de fondo fija
           Positioned.fill(
             child: Opacity(
               opacity: 0.25,
@@ -120,15 +104,8 @@ class _MedaiaDetailScreenState extends State<MedaiaDetailScreen> {
           ),
           SafeArea(
             bottom: false,
-            child: PageView(
-              controller: _pageController,
-              onPageChanged: (int index) {
-                setState(() {
-                  currentPageIndex = index;
-                });
-              },
-              children: pages,
-            ),
+            // CAMBIO CLAVE AQUÍ: IndexedStack mantiene las páginas vivas
+            child: IndexedStack(index: currentPageIndex, children: pages),
           ),
         ],
       ),
