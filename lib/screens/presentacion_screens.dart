@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:app_invensibles/const/lorem.dart';
 
 class Presentacion extends StatefulWidget {
-  const Presentacion({super.key});
+  final int currentTab;
+  const Presentacion({super.key, required this.currentTab});
 
   @override
   State<Presentacion> createState() => _PresentacionState();
@@ -25,7 +26,9 @@ class _PresentacionState extends State<Presentacion> {
                 // El Video nítido (ocupa el área superior)
                 Positioned.fill(
                   bottom: 60,
-                  child: VideoScreen(), // <-- Aquí integras tu Widget de Video
+                  child: VideoScreen(
+                    currentTab: widget.currentTab,
+                  ), // <-- Pasamos el índice actual aquí
                 ),
 
                 // Gradiente para fusionar la parte inferior del video con el fondo

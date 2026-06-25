@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoScreen extends StatefulWidget {
-  const VideoScreen({super.key});
+  final int currentTab;
+  const VideoScreen({super.key, required this.currentTab});
 
   @override
   State<VideoScreen> createState() => _VideoScreenState();
@@ -22,7 +23,10 @@ class _VideoScreenState extends State<VideoScreen> {
             if (mounted) {
               setState(() {
                 _isInitialized = true;
-                _controller.play();
+                // Solo reproducimos al iniciar si estamos en la pestaña 0
+                if (widget.currentTab == 0) {
+                  _controller.play();
+                }
                 _controller.setLooping(true);
               });
             }
@@ -30,6 +34,27 @@ class _VideoScreenState extends State<VideoScreen> {
           .catchError((error) {
             debugPrint("Error al inicializar el video: $error");
           });
+  }
+
+  // --- AQUÍ ESTÁ EL TRUCO CLAVE ---
+  @override
+  void didUpdateWidget(covariant VideoScreen oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+    // Si el video no se ha inicializado todavía, no hacemos nada para evitar errores
+    if (!_isInitialized) return;
+
+    if (widget.currentTab != 0) {
+      // Si el usuario cambió a CUALQUIER otra pestaña, pausamos el video
+      if (_controller.value.isPlaying) {
+        _controller.pause();
+      }
+    } else {
+      // Si el usuario regresó a la pestaña 0 (Historia/Presentación), lo reanudamos
+      if (!_controller.value.isPlaying) {
+        _controller.play();
+      }
+    }
   }
 
   @override
@@ -53,16 +78,6 @@ class _VideoScreenState extends State<VideoScreen> {
               height: 50,
               width: 100,
             ),
-            // child: Column(
-            //   mainAxisAlignment: MainAxisAlignment.center,
-            //   children: [
-            //     Icon(Icons.error_outline_rounded, color: Colors.red, size: 80),
-            //     Text(
-            //       'Error en reproducirse el viedeo favor de contactar al desarrllador',
-            //       style: TextStyle(fontSize: 20),
-            //     ),
-            //   ],
-            // ),
           ),
         ),
       );

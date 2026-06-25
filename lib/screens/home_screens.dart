@@ -17,16 +17,15 @@ class MedaiaDetailScreen extends StatefulWidget {
 class _MedaiaDetailScreenState extends State<MedaiaDetailScreen> {
   int currentPageIndex = 0;
 
-  final List<Widget> pages = const [
-    Presentacion(),
-    CharacterCarouselScreen(),
-    MemoryGamePage(),
-    InvincibleMomentsPage(),
-    ProfilePage(),
-  ];
-
   @override
   Widget build(BuildContext context) {
+    final List<Widget> pages = [
+      Presentacion(currentTab: currentPageIndex),
+      CharacterCarouselScreen(),
+      MemoryGamePage(),
+      InvincibleMomentsPage(),
+      ProfilePage(),
+    ];
     return Scaffold(
       backgroundColor: Colors.black,
       bottomNavigationBar: Theme(
