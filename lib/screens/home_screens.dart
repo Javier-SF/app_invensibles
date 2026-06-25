@@ -1,5 +1,6 @@
 // ignore_for_file: deprecated_member_use
 
+import 'package:app_invensibles/screens/perfil.dart';
 import 'package:app_invensibles/screens/game_screen.dart';
 import 'package:app_invensibles/screens/momentos.dart';
 import 'package:app_invensibles/screens/personajes_screen.dart';
@@ -22,12 +23,7 @@ class _MedaiaDetailScreenState extends State<MedaiaDetailScreen> {
     CharacterCarouselScreen(),
     MemoryGamePage(),
     InvincibleMomentsPage(),
-    Center(
-      child: Text(
-        'Contacto',
-        style: TextStyle(fontSize: 10, color: Colors.white),
-      ),
-    ),
+    ProfilePage(),
   ];
 
   @override
