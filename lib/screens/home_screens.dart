@@ -1,6 +1,7 @@
 // ignore_for_file: deprecated_member_use
 
 import 'package:app_invensibles/screens/game_screen.dart';
+import 'package:app_invensibles/screens/momentos.dart';
 import 'package:app_invensibles/screens/personajes_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:app_invensibles/screens/presentacion_screens.dart';
@@ -20,12 +21,7 @@ class _MedaiaDetailScreenState extends State<MedaiaDetailScreen> {
     Presentacion(),
     CharacterCarouselScreen(),
     MemoryGamePage(),
-    Center(
-      child: Text(
-        'Momentos',
-        style: TextStyle(fontSize: 10, color: Colors.white),
-      ),
-    ),
+    InvincibleMomentsPage(),
     Center(
       child: Text(
         'Contacto',

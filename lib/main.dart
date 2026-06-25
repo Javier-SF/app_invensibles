@@ -1,7 +1,5 @@
-import 'package:app_invensibles/juego.dart';
-import 'package:app_invensibles/prueba.dart';
-import 'package:app_invensibles/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:app_invensibles/screens/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,8 +14,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'INVINCIBLE',
 
-      // home: SafeArea(child: MemoryGamePage()),
-      // home: SafeArea(child: SnakeGamePage()),
+      // home: SafeArea(child: InvincibleMomentsPage()),
       home: SafeArea(child: SplashScreen()),
     );
   }
