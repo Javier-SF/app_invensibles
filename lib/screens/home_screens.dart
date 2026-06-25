@@ -1,5 +1,6 @@
 // ignore_for_file: deprecated_member_use
 
+import 'package:app_invensibles/screens/game_screen.dart';
 import 'package:app_invensibles/screens/personajes_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:app_invensibles/screens/presentacion_screens.dart';
@@ -18,14 +19,18 @@ class _MedaiaDetailScreenState extends State<MedaiaDetailScreen> {
   final List<Widget> pages = const [
     Presentacion(),
     CharacterCarouselScreen(),
-    // Center(
-    //   child: Text(
-    //     'Personajes',
-    //     style: TextStyle(fontSize: 10, color: Colors.white),
-    //   ),
-    // ),
+    MemoryGamePage(),
     Center(
-      child: Text('Juego', style: TextStyle(fontSize: 10, color: Colors.white)),
+      child: Text(
+        'Momentos',
+        style: TextStyle(fontSize: 10, color: Colors.white),
+      ),
+    ),
+    Center(
+      child: Text(
+        'Contacto',
+        style: TextStyle(fontSize: 10, color: Colors.white),
+      ),
     ),
   ];
 
@@ -85,9 +90,23 @@ class _MedaiaDetailScreenState extends State<MedaiaDetailScreen> {
               const NavigationDestination(
                 selectedIcon: Icon(Icons.gamepad, color: Colors.white),
                 icon: Icon(Icons.gamepad_outlined, color: Colors.white),
-                // selectedIcon: Icon(Icons.gamepad),
-                // icon: Icon(Icons.gamepad_outlined),
+
                 label: 'Juego',
+              ),
+              const NavigationDestination(
+                selectedIcon: Icon(Icons.newspaper, color: Colors.white),
+                icon: Icon(Icons.newspaper_outlined, color: Colors.white),
+
+                label: 'Momentos',
+              ),
+              const NavigationDestination(
+                selectedIcon: Icon(
+                  Icons.contact_phone_rounded,
+                  color: Colors.white,
+                ),
+                icon: Icon(Icons.contact_phone_outlined, color: Colors.white),
+
+                label: 'Contactame',
               ),
             ],
           ),

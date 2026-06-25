@@ -1,5 +1,6 @@
 import 'package:app_invensibles/class/character.dart';
 import 'package:app_invensibles/const/lorem.dart';
+import 'package:app_invensibles/screens/descricion_pj_screen.dart';
 import 'package:flutter/material.dart';
 
 class CharacterCarouselScreen extends StatefulWidget {
@@ -122,91 +123,6 @@ class _CharacterCarouselScreenState extends State<CharacterCarouselScreen> {
                     ),
                   );
                 },
-              ),
-            ),
-
-            // Botón de abajo (Estilo "Book Now" de la imagen)
-            Padding(
-              padding: const EdgeInsets.all(24.0),
-              child: ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF64B5F6),
-                  minimumSize: const Size(double.infinity, 56),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                ),
-                child: const Text(
-                  "Resumen del personaje",
-                  style: TextStyle(fontSize: 18, color: Colors.black),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class CharacterDetailScreen extends StatelessWidget {
-  final Character character;
-
-  const CharacterDetailScreen({super.key, required this.character});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFF0F1115),
-      appBar: AppBar(
-        backgroundColor: Colors.black,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          icon: Icon(Icons.arrow_back_ios_new_outlined, color: Colors.white),
-        ),
-        elevation: 0,
-        title: Text(character.name, style: TextStyle(color: Colors.white)),
-      ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              height: 400,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(character.imagePath),
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    character.name,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 28,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                  Text(
-                    character.description,
-                    style: const TextStyle(
-                      color: Colors.grey,
-                      fontSize: 16,
-                      height: 1.5,
-                    ),
-                  ),
-                ],
               ),
             ),
           ],
